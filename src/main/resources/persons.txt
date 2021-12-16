@@ -1,0 +1,6 @@
+sms-sender:+15105550101, sms-recipient:+15105550102, body: Hello!
+sms-sender:+15105550101, sms-recipient:+15105550103, body: testing 3!
+sms-sender:+15105550102, sms-recipient:+15105550101,+15105550104, body: I'm outside
+sms-sender:+15105550103, sms-recipient:+15105550101, body: testing 1
+push-recipient:+15105550101,+15105550102, body: open our app to see our new updates
+push-recipient:+15105550103,+15105550104, body: testing 2
