@@ -1,0 +1,30 @@
+The task is to take a string representing message activity from three people and give a breakdown of the
+message types that were sent and received.
+
+The three people and their handset numbers are:
+• Jessie: +15105550101
+• Marion: +15105550102
+• Jackie: +15105550103, +15105550104
+
+
+Message Format
+There are two types of messages: SMS & Push
+
+A line representing an SMS message has the following format:
+sms-sender:<handset_number>, sms-recipient:[<handset_number_list>], body:<message text>
+
+A line representing a push message has the following format:
+push-recipient:[<handset_number_list>], body:<push text>
+
+Each message in the input string well formed and is delimeted by a newline character.
+Example Input/Output
+Input
+
+sms-sender:+15105550101, sms-recipient:+15105550102, body: Hello! 
+sms-sender:+15105550102, sms-recipient:+15105550101,+15105550104, body: I'm outside
+push-recipient:+15105550101,+15105550102, body: open our app to see our new updates
+
+Output
+Jessie sent 1 SMS messages, recieved 1 SMS messages, and received 1 push messages
+Marion sent 2 SMS messages, recieved 1 SMS messages, and received 1 push messages
+Jackie sent 0 SMS messages, recieved 1 SMS messages, and received 0 push messages
