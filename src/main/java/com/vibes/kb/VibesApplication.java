@@ -16,12 +16,12 @@ public class VibesApplication {
     private static FileProcessor fileProcessor;
 
     public static void main(String[] args) throws FileNotFoundException {
-        System.out.println("Spring Set up works");
-        getPrint();
         SpringApplication.run(VibesApplication.class, args);
+        System.out.println("Project Set up works");
+        processFile();
     }
 
-  public static void getPrint() throws FileNotFoundException {
+  public static void processFile() throws FileNotFoundException {
       fileProcessor = new FileProcessor();
       List<MesageModel> counts  = fileProcessor.readFile(FILE_PATH);
       fileProcessor.printMessages(counts);

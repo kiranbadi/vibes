@@ -16,12 +16,12 @@ public class FileProcessor {
         List<MesageModel> counts = getUsersModel();
         List<String> smsReceiverList ;
         List<String> pushReceiverList;
-        //    System.out.println("counts : \n" + counts);
+    //    System.out.println("counts : \n" + counts);
         Scanner scanner = new Scanner(new File(FILE_PATH));
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             // process the line
-            //    System.out.println(line);
+            // System.out.println(line);
             // check if the line is for sms or push message
             if (line.startsWith("sms-sender")) {
                 SMSModel smsModel = new SMSModel();
@@ -35,7 +35,7 @@ public class FileProcessor {
                     String userMobile = count.getMobile();
                     if (userMobile.equals(smsSender)) {
                         int smsSend = count.getSmsSend();
-                        smsSend = smsSend + 1;
+                        smsSend += 1;
                         count.setSmsSend(smsSend);
                     }
 
@@ -43,7 +43,7 @@ public class FileProcessor {
                     {
                        if (smsReceiverList.get(k).equals(userMobile)) {
                             int smsReceived = count.getSmsReceived();
-                            smsReceived = smsReceived + 1;
+                            smsReceived += 1;
                             count.setSmsReceived(smsReceived);
                         }
                     }
@@ -51,19 +51,19 @@ public class FileProcessor {
                 }
 
             } else {
-                PushModel pushModel = new PushModel();
+                PushModel pushModel;
                 PushHelper pushHelper = new PushHelper();
                 pushModel = pushHelper.getPushInformation(line);
                 pushReceiverList = pushModel.getPushRecipient();
                 int p = pushReceiverList.size();
                 for (MesageModel count : counts) {
-                    // check all objects for mobile and increment accordingly 3 parameters in the object
+                    // check all objects for mobile and increment accordingly for Receiver and Sender parameters in the object
                     String userMobile = count.getMobile();
                     for(int k =0 ; k < p; k++)
                     {
                         if (pushReceiverList.get(k).equals(userMobile)) {
                             int pushReceived = count.getPushReceived();
-                            pushReceived = pushReceived + 1;
+                            pushReceived += 1;
                             count.setPushReceived(pushReceived);
                         }
                     }
@@ -79,8 +79,8 @@ public class FileProcessor {
     public void printMessages(List<MesageModel> countList)
     {
      //   countList.forEach(System.out::println);
-        List<MesageModel> DupsList = new ArrayList<>();
-        List<MesageModel> NonDupsList = new ArrayList<>();
+        List<MesageModel> DupsList;
+        List<MesageModel> NonDupsList;
         List<MesageModel> MergedList = new ArrayList<>();
         MesageModel uniqueModel = new MesageModel();
         NonDupsList = countList.stream().distinct().collect(Collectors.toList());
@@ -128,7 +128,7 @@ public class FileProcessor {
 
     }
 
-    // can be abstracted away in the from main method
+    // can be abstracted away from the from main method
     public static List<MesageModel> getDuplicates(List<MesageModel> countList)
 
     {

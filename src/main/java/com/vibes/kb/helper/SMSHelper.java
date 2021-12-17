@@ -4,13 +4,9 @@ package com.vibes.kb.helper;
 import com.vibes.kb.model.SMSModel;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /*
 sms-sender:+15105550102, sms-recipient:+15105550101,+15105550104, body: I'm outside
@@ -28,7 +24,6 @@ public class SMSHelper {
         smsMessage = smsMessage.replace("+","");
         smsModel = new SMSModel();
         String[] smsArray = smsMessage.split(", ");
-        int len = smsArray.length;
         // populate the smspojo
         String[] smsSenderArray = smsArray[0].split(":");
         String smsSender = smsSenderArray[1];
