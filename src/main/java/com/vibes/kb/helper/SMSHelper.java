@@ -2,8 +2,6 @@ package com.vibes.kb.helper;
 
 
 import com.vibes.kb.model.SMSModel;
-import org.springframework.stereotype.Component;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +9,7 @@ import java.util.stream.Collectors;
 /*
 sms-sender:+15105550102, sms-recipient:+15105550101,+15105550104, body: I'm outside
  */
-@Component
+
 public class SMSHelper {
 
     private SMSModel smsModel;
